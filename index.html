@@ -2,30 +2,30 @@
 <head>
     <!--Add your title here-->
     <title>Text Me - Powered by SuperPhone®</title>
-    
+   
     <!--This code makes the website responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+   
     <!--This is the javascript for the page-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.0.7/parsley.js"></script>
     <script src="https://superphone.io/f/assets/javascripts/intlTelInput.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
+   
     <!--This is the favicon for the browser tab-->
     <link rel="shortcut icon" href="https://app.superphone.io/favicon.ico" type="image/x-icon">
-    
+   
     <!--These are the stylesheets for the page-->
     <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
     <link rel="stylesheet" href="https://superphone.io/f/assets/stylesheets/intlTelInput.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
+   
     <!--This is the actual function that calls the form widget-->
     <script type="text/javascript">
         $(document).ready(function () {
-    
+   
             // Set up phone widget
             $("#phone").intlTelInput({
                 utilsScript: 'https://superphone.io/f/assets/javascripts/utils.js',
@@ -34,20 +34,20 @@
                 autoFormat: true,
                 autoPlaceholder: true
             });
-    
+   
             // Click on button send
             $('#addContact').submit(function (event) {
                 event.preventDefault();
                 var formData = $("#addContact").serializeArray();
                 $('#submitButton').prop('disabled', true);
                 $('.form-error').hide();
-    
+   
                 // Convert the form data to backend format
                 var requestData = {};
                 formData.map(function (element) {
                     requestData[element.name] = element.value;
                 });
-    
+   
                 // Send post to API
                 $.ajax({
                     url: 'https://superphone.io/w/ERMoA9', // Url where to submit the request
@@ -74,7 +74,7 @@
         });
     </script>
 
-    
+   
     <!--This sets the color scheme and font style of the page-->
     <style>
     body {
@@ -87,14 +87,10 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("https://static1.squarespace.com/static/5793959220099e053103d136/t/605367383550753cca46e16a/1616078662480/f_IMG_3574+%281%29.jpg");
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;   
-	}
-        
+        }
+       
         *{
-	font-family: 'Oswald', sans-serif;
+font-family: 'Oswald', sans-serif;
         }    
 
     button#submitButton {
@@ -119,19 +115,19 @@
     padding: 5px;
     font-size: 16px;
         }
-      
+     
     input#phone {
     letter-spacing: 1px;
     color: white;
     border: 0px;
     border-bottom: 2px solid white;
-    background: #00000030;
+    background: black;
     padding: 26px 46px;
     font-size: 17px;
     border-radius: 0px;
     font-weight: 700;
         }
-        
+       
     input[type=text] {
     width: 100%;
     padding: 12px 20px;
@@ -142,23 +138,30 @@
     box-sizing: border-box;
     height: 38px;
         }
-    
+   
     .form-error {
     padding-left: 12px;
     display: none;
     color: #D85959;
         }
-    
+   
+    .form-success {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 5px;
+    display: none;
+        }
+   
     .parsley-required {
     padding-top: 5px;
     color: #D85959;
         }
-    
+   
     .parsley-minlength {
     padding-top: 5px;
     color: #ffffff;
         }
-    
+   
     .iti-flag {
      background-image: url("https://superphone.io/f/assets/images/flags.png");
         }
@@ -166,11 +169,11 @@
     input#phone:focus {
     box-shadow: 0px 0px 0px;
         }
-        
+       
     .buto {
     text-align: center;
         }
-        
+       
     .form-success {
     background: black;
     color: white;
@@ -179,14 +182,14 @@
     text-align: center;
     margin-top: 61px;
         }
-        
+       
     .form-error {
     color: #ffffff;
         }
 
     </style>
-</head> 
-    
+</head>
+   
     <!--This is the code for the actual page-->
     <body>
     <div class="page-center">
@@ -205,7 +208,7 @@
                         <button type="submit" id="submitButton" class="btn btn-default">Submit</button>
                     </div>
                 </div>
-    
+   
                 <div class="form-group" style="padding-left: 12px">
                     <div class="form-error container">
                         <div class="buto">Something went wrong. Please check your mobile and try again.</div>
@@ -214,7 +217,7 @@
             </form>
         </div>
     </div>
-    
+   
     <!--This is the text for the success page-->
     <div class="form-success">
             <h1>Just texted you - please check your messages.</h1>
